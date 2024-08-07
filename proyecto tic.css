@@ -1,0 +1,237 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    margin: 0;
+
+    user-select: none;
+    
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 0fr 1fr 0fr;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+
+}
+
+.header{
+    grid-column: span 3;
+    display: flex;
+    background-color: #D9D9D9; 
+    border: 4px solid;
+    border-color: black;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 2px;
+    width: 25%;
+    height: 1fr;
+    border-radius: 1vh;
+    
+    
+}
+.Shop{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    
+}
+.ejercicios{
+    display: flex;
+    background-color: #D9D9D9; 
+    border: 4px solid;
+    border-color: black;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 2px;
+    width: 50%;
+    height: 1fr;
+    align-items: flex-start;
+    justify-items: flex-start;
+    transition: transform 0.3s ease-in-out;
+
+
+}
+
+
+.ejercicios-hover {
+    transform: scale(1.5);
+}
+
+.tituloshop{
+    display: flex;
+    color: black;
+    background-color: #D9D9D9; 
+    border: 4px solid;
+    border-color: black;
+    justify-content: center;
+    height: 60px;
+    width: 400px;
+}
+.titulofood{
+    display: flex;
+    color: black;
+    background-color: #D9D9D9; 
+    border: 4px solid;
+    border-color: black;
+    justify-content: center;
+    height: 60px;
+    width: 400px;
+}
+.contadordecalorias{ 
+    display: flex;
+    color: black;
+    background-color: #D9D9D9; 
+    border: 4px solid;
+    border-color: black;
+    justify-content: center;
+    border-radius: 25px;
+    height: 40px;
+    width: 400px;
+}
+
+.Production{
+    background-color: #D9D9D9; 
+    border: 4px solid;
+    border-color: black;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 2px;
+
+}
+button{
+    border:0;
+    background-image: linear-gradient(
+        150deg,
+        #9500,
+        #09F,
+        #00DDFF
+    );
+    border-radius: 8px;
+color:#fff;
+display: flex;
+font-size: 18px;
+padding: 4px;
+cursor: pointer;
+transition: .3s;
+
+}
+
+button span{
+    background-color: #111;
+    padding: 4px 6px;
+    border-radius: 6px;
+    transition: .3s;
+}
+button:hover span {
+    background: none;
+}
+button:active {
+    transform: scale(0,2)
+}
+.contador{
+    justify-content: center;
+    align-items: center;
+}
+img{
+    width: 300px;
+    height: 300px;
+ 
+    align-items: center;
+  
+}
+.circulo{
+    background: lightblue;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+}
+.Comida{
+    background-color: #D9D9D9; 
+    border: 4px solid;
+    border-color: black;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 2px;
+
+}
+.Cof{
+    width: 450px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.pill {
+    width: 50px;
+    height: 450px;
+    background: linear-gradient(to bottom, #D3D3D3 50%, #90EE90 50%);
+    border-radius: 25px;
+    border: 1px solid #ccc;
+   
+    
+}
+  
+.Fat{
+    align-items: center;
+    justify-content: center;
+    align-content: flex-end;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.mama{
+    display: grid;
+    justify-items: end;
+}
+.borrar{
+    color:#f4f4f4;
+}
+.abajo{
+    display: flex;
+    color: black;
+    background-color: #D9D9D9; 
+    border: 4px solid;
+    border-color: black;
+    justify-content: center;
+    height: 40px;
+   
+}
+.abajo2{
+    display: flex;
+    color: black;
+    background-color: #D9D9D9; 
+    border: 4px solid;
+    border-color: black;
+    justify-content: center;
+    height: 40px;
+    
+}
+.titulodinero{
+    display: flex;
+    color: black;
+    background-color: #D9D9D9; 
+    border: 4px solid;
+    border-color: black;
+    justify-content: center;
+    border-radius: 25px;
+    height: 40px;
+    width: 400px;
+}
