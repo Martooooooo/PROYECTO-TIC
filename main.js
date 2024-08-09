@@ -4,5 +4,6 @@ function click() {
     Number(document.getElementById("contadordecalorias").innerHTML) + 1;
   }
 document.getElementById("circulo").addEventListener("click", click);
+
   
   
