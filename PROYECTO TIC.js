@@ -1,7 +1,7 @@
 function click() {
-    document.getElementById("Fatguy").innerHTML =
-      Number(document.getElementById("cantidad").innerHTML) + 1;
+    document.getElementById("circulo").innerHTML =
+      Number(document.getElementById("contadordemusculo").innerHTML) + 1;
   }
 
-  document.getElementById("Fatguy").addEventListener("click", click);
- 
+  document.getElementById("circulo").addEventListener("click", click);
+  console.log=click
