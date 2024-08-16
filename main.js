@@ -15,9 +15,8 @@ let cantidaddedinero = 0
 document.getElementById("titulodinero").addEventListener("click", () => {
   if (contadordecalorias >=preciodinero){
     alert('lo compraste')
-    contadordecalorias = contadordecalorias - preciodinero
+    contadordecalorias = contadordecalorias - preciodinero;
     document.getElementById("contadordecalorias").innerHTML = contadordecalorias;
-    preciodinero = preciodinero*2
     cantidaddedinero = cantidaddedinero + 1
     console.log(cantidaddeejercicios)
   } else alert(`te faltan ${contadordecalorias - preciodinero}`)
