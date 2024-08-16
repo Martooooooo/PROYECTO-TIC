@@ -10,17 +10,17 @@ function toggleMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-let preciodelcosoeste = 5
-let cantidaddeejercicios = 0
-document.getElementById("ejercicios").addEventListener("click", () => {
-  if (contadordecalorias >= preciodelcosoeste){
-    alert('lo compraste gordo puto')
-    contadordecalorias = contadordecalorias - preciodelcosoeste
+let preciodinero = 5
+let cantidaddedinero = 0
+document.getElementById("titulodinero").addEventListener("click", () => {
+  if (contadordecalorias >=preciodinero){
+    alert('lo compraste')
+    contadordecalorias = contadordecalorias - preciodinero
     document.getElementById("contadordecalorias").innerHTML = contadordecalorias;
-    preciodelcosoeste = preciodelcosoeste*2
-    cantidaddeejercicios = cantidaddeejercicios + 1
+    preciodinero = preciodinero*2
+    cantidaddedinero = cantidaddedinero + 1
     console.log(cantidaddeejercicios)
-  } else alert(`te faltan ${contadordecalorias - preciodelcosoeste}`)
+  } else alert(`te faltan ${contadordecalorias - preciodinero}`)
 });
 
   
