@@ -35,14 +35,20 @@ function toggleMenu() {
       dropdown.addEventListener('transitionend', function() {
           if (!dropdown.classList.contains("show")) {
               dropdown.style.visibility = 'hidden';
+              dropdown.style.height = ''; 
+              dropdown.style.opacity = ''; 
           }
       }, { once: true });
   } else {
       dropdown.style.visibility = 'visible';
+      dropdown.style.opacity = '0'; 
+      dropdown.style.height = '0';  
+
+      dropdown.offsetHeight; 
+
       dropdown.style.opacity = '1';
       dropdown.style.height = dropdown.scrollHeight + 'px';
   }
   
   dropdown.classList.toggle("show");
 }
-
