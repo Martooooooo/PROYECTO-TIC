@@ -52,20 +52,8 @@ function toggleMenu() {
   
   dropdown.classList.toggle("show");
 }
-const GameData={
-  Cantidaddecalorías:"contadordecalorias",
-  cantidaddemusculo: "contadordecalorias"
-}
-const fs = require('fs');
-
-function saveGameDataToFile(gameData, fileName) {
-    const jsonData = JSON.stringify(gameData, null, 2); // Convertir a JSON con formato
-    fs.writeFileSync(fileName, jsonData, 'utf8');
-    console.log(`Datos del juego guardados en ${fileName}`);
-}
-
-// Llamar a la función con los datos del juego y el nombre del archivo
-saveGameDataToFile(gameData, 'gameData.json');
+//PROGRAMA DESDE ACA AARON
 
 
-TEOEMPEZAAPROGRAMARDESDEACAYNOBORRESESTO
+
+//PROGRAMA DESDE ACA TEO
