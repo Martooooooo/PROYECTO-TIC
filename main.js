@@ -1,10 +1,13 @@
+loadGameData()
+let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
 document.addEventListener('DOMContentLoaded', () => {
   let calorias = 0;
   let clicksPerSecond = 0;
   let intervalId;
+  
 
   const circulo = document.getElementById('circulo');
-  const contadorDeCalorias = document.querySelectorAll('.contadordecalorias');
+  const contadorDeCalorias = document.querySelectorAll('.contadorDeCalorias');
   const ejercicios = document.querySelectorAll('.ejercicios');
   const comidas = document.querySelectorAll('.Comida');
   const body = document.body;
@@ -40,16 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   }
 
-  circulo.addEventListener('click', () => {
-      calorias++;
-      updateCalorias();
-  });
+  function click() {
+    contadordecalorias += 1;
+    console.log(contadordecalorias)
+    document.getElementById("contadorDeCalorias").innerHTML = contadordecalorias;
+  }
+document.getElementById("circulo").addEventListener("click", click);
 
   function startAutoClicks() {
       if (!intervalId) {
-          intervalId = setInterval(() => {
-              calorias += clicksPerSecond;
-              updateCalorias();
+intervalId = setInterval(() => {
+calorias += clicksPerSecond;
+updateCalorias();
           }, 1000);
       }
   }
@@ -140,3 +145,25 @@ function toggleMenu() {
 
   dropdown.classList.toggle("show");
 }
+//Backend
+function saveGameData(contadorDeCalorias, cantidaddedinero) {
+    console.log(contadordecalorias,cantidaddedinero)
+  localStorage.setItem('contadorDeCalorias', contadordecalorias);
+localStorage.setItem('cantidaddedinero', cantidaddedinero);
+  
+}
+
+function loadGameData () {
+    let calorias = localStorage.getItem('contadorDeCalorias') || 0;
+    cantidaddedinero = Number(localStorage.getItem("cantidaddedinero"))
+    let contadorCalorias = document.getElementById("contadorDeCalorias");
+    contadorCalorias.innerText = calorias;
+    
+}
+
+setInterval(()=>{
+    saveGameData(document.getElementById("contadorDeCalorias").innerText, cantidaddedinero)
+
+},1000) 
+
+
