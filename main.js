@@ -1,54 +1,143 @@
-let contadordecalorias = Number(document.getElementById("contadordecalorias").innerHTML);
+document.addEventListener('DOMContentLoaded', () => {
+  let calorias = 0;
+  let clicksPerSecond = 0;
+  let intervalId;
 
-function click() {
-  contadordecalorias += 1;
-  document.getElementById("contadordecalorias").innerHTML = contadordecalorias;
-}
+  const circulo = document.getElementById('circulo');
+  const contadorDeCalorias = document.querySelectorAll('.contadordecalorias');
+  const ejercicios = document.querySelectorAll('.ejercicios');
+  const comidas = document.querySelectorAll('.Comida');
+  const body = document.body;
 
-document.getElementById("circulo").addEventListener("click", click);
-function toggleMenu() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
+  const incrementoCosto = 1.15;
 
-let preciodinero = 5
-let cantidaddedinero = 0
-document.getElementById("titulodinero").addEventListener("click", () => {
-  if (contadordecalorias >=preciodinero){
-    alert('lo compraste')
-    contadordecalorias = contadordecalorias - preciodinero;
-    document.getElementById("contadordecalorias").innerHTML = contadordecalorias;
-    cantidaddedinero = cantidaddedinero + 1
-    console.log(cantidaddeejercicios)
-  } else alert(`te faltan ${contadordecalorias - preciodinero}`)
+  const ejerciciosInfo = {
+      'ejerciciosmancuernas': { costo: 5, produccion: 1 },
+      'ejerciciosbicicleta': { costo: 50, produccion: 10 },
+      'ejerciciospresbanca': { costo: 500, produccion: 100 },
+      'ejercicioscaminadora': { costo: 5000, produccion: 1000 },
+      'ejerciciossentadilla': { costo: 50000, produccion: 10000 }
+  };
+
+  const comidasInfo = {
+      'Arros': { costo: 500, potenciador: 1.10, duracion: 5000 },
+      'Chukistrukis': { costo: 500, potenciador: 1.20, duracion: 5000 },
+      'Avena': { costo: 500, potenciador: 1.30, duracion: 5000 },
+      'Proteinaenpolvo': { costo: 500, potenciador: 1.40, duracion: 5000 },
+      'Farmecutico locales': { costo: 500, potenciador: 1.50, duracion: 5000 }
+  };
+
+  function updateCalorias() {
+      contadorDeCalorias.forEach(contador => {
+          contador.textContent = calorias;
+      });
+  }
+
+  function updateEjercicios() {
+      for (let key in ejerciciosInfo) {
+          const ejercicio = document.getElementById(key);
+          ejercicio.querySelector('p').textContent = `Ejercicio tiene un coste de ${ejerciciosInfo[key].costo} y produce ${ejerciciosInfo[key].produccion}`;
+      }
+  }
+
+  circulo.addEventListener('click', () => {
+      calorias++;
+      updateCalorias();
+  });
+
+  function startAutoClicks() {
+      if (!intervalId) {
+          intervalId = setInterval(() => {
+              calorias += clicksPerSecond;
+              updateCalorias();
+          }, 1000);
+      }
+  }
+
+  ejercicios.forEach(ejercicio => {
+      ejercicio.addEventListener('click', () => {
+          const ejercicioId = ejercicio.id;
+          const costoActual = ejerciciosInfo[ejercicioId].costo;
+          const produccionActual = ejerciciosInfo[ejercicioId].produccion;
+
+          if (calorias >= costoActual) {
+              calorias -= costoActual; 
+              clicksPerSecond += produccionActual; 
+              ejerciciosInfo[ejercicioId].costo = Math.ceil(costoActual * incrementoCosto); 
+              updateCalorias();
+              updateEjercicios();
+              startAutoClicks(); 
+          } else {
+              alert("No tienes suficientes calorías para comprar este ejercicio.");
+          }
+      });
+  });
+
+  
+  function aplicarPotenciador(potenciador, duracion) {
+      body.style.backgroundColor = 'gold';
+      clicksPerSecond *= potenciador;
+
+      setTimeout(() => {
+          clicksPerSecond /= potenciador;
+          body.style.backgroundColor = ''; 
+      }, duracion);
+  }
+
+  comidas.forEach(comida => {
+      comida.addEventListener('click', () => {
+          const comidaId = comida.id;
+          const { costo, potenciador, duracion } = comidasInfo[comidaId];
+
+          if (calorias >= costo) {
+              calorias -= costo;
+              aplicarPotenciador(potenciador, duracion); 
+              updateCalorias();
+          } else {
+              alert("No tienes suficientes calorías para comprar esta comida.");
+          }
+      });
+  });
+
+ 
+  startAutoClicks();
+  updateEjercicios();
 });
+
 
 function toggleMenu() {
   var dropdown = document.getElementById("myDropdown");
 
   if (dropdown.classList.contains("show")) {
       dropdown.style.height = dropdown.scrollHeight + 'px';
+      dropdown.style.opacity = '1';
+      dropdown.style.visibility = 'visible';
+
       setTimeout(function() {
           dropdown.style.height = '0';
           dropdown.style.opacity = '0';
-      }, 10); 
+      }, 10);
 
       dropdown.addEventListener('transitionend', function() {
           if (!dropdown.classList.contains("show")) {
               dropdown.style.visibility = 'hidden';
-              dropdown.style.height = ''; 
+              dropdown.style.height = '';  
               dropdown.style.opacity = ''; 
           }
       }, { once: true });
+
   } else {
+      
       dropdown.style.visibility = 'visible';
-      dropdown.style.opacity = '0'; 
-      dropdown.style.height = '0';  
+      dropdown.style.height = '0';
+      dropdown.style.opacity = '0';
 
-      dropdown.offsetHeight; 
-
-      dropdown.style.opacity = '1';
-      dropdown.style.height = dropdown.scrollHeight + 'px';
+      setTimeout(function() {
+          dropdown.style.height = dropdown.scrollHeight + 'px';
+          dropdown.style.opacity = '1';
+      }, 10);
   }
-  
+
   dropdown.classList.toggle("show");
 }
+
