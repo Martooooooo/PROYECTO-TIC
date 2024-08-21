@@ -284,13 +284,8 @@ body {
     height: auto;
     visibility: visible;
 }
-.caja1{
-   
-    
-}
-.caja2{
-  
-}
+
+
 .menu{
     display: grid;
     grid-template-columns: 1fr 1fr;
