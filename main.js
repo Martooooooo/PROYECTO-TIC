@@ -133,15 +133,15 @@ function toggleMenu() {
       setTimeout(function() {
           dropdown.style.height = '0';
           dropdown.style.opacity = '0';
-      }, 10);
+}, 10);
 
-      dropdown.addEventListener('transitionend', function() {
-          if (!dropdown.classList.contains("show")) {
-              dropdown.style.visibility = 'hidden';
-              dropdown.style.height = '';  
-              dropdown.style.opacity = ''; 
-          }
-      }, { once: true });
+dropdown.addEventListener('transitionend', function() {
+if (!dropdown.classList.contains("show")) {
+dropdown.style.visibility = 'hidden';
+dropdown.style.height = '';  
+dropdown.style.opacity = ''; 
+}
+}, { once: true });
 
 } else {
     
