@@ -58,6 +58,14 @@ updateCalorias();
 }, 1000);
 }
 }
+document.getElementById("titulodinero").addEventListener("click", () => {  if (contadordecalorias >=preciodinero){
+    alert('lo compraste')
+    contadordecalorias = contadordecalorias - preciodinero;
+    document.getElementById("contadorDeCalorias").innerHTML = contadordecalorias;
+    cantidaddedinero = cantidaddedinero + 1
+    console.log(cantidaddedinero)
+  } else alert(`te faltan ${contadordecalorias - preciodinero}`)
+});
 
 ejercicios.forEach(ejercicio => {
 ejercicio.addEventListener('click', () => {
@@ -69,23 +77,23 @@ if (calorias >= costoActual) {
 calorias -= costoActual; 
 clicksPerSecond += produccionActual; 
               ejerciciosInfo[ejercicioId].costo = Math.ceil(costoActual * incrementoCosto); 
-              updateCalorias();
-              updateEjercicios();
-              startAutoClicks(); 
-          } else {
-              alert("No tienes suficiente dinero para comprar este ejercicio.");
-          }
-      });
-  });
+updateCalorias();
+updateEjercicios();
+startAutoClicks(); 
+} else {
+alert("No tienes suficiente dinero para comprar este ejercicio.");
+}
+});
+});
 
-  
-  function aplicarPotenciador(potenciador, duracion) {
-      body.style.backgroundColor = 'gold';
+
+function aplicarPotenciador(potenciador, duracion) {
+body.style.backgroundColor = 'gold';
       clicksPerSecond *= potenciador;
 
-      setTimeout(() => {
-          clicksPerSecond /= potenciador;
-          body.style.backgroundColor = ''; 
+setTimeout(() => {
+    clicksPerSecond /= potenciador;
+body.style.backgroundColor = ''; 
       }, duracion);
   }
 
