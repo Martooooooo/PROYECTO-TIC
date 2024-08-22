@@ -1,16 +1,19 @@
+let cantidaddedinero = 0;
+
 loadGameData()
 let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
-document.addEventListener('DOMContentLoaded', () => {
-  let calorias = 0;
-  let clicksPerSecond = 0;
-  let intervalId;
-  
 
-  const circulo = document.getElementById('circulo');
-  const contadorDeCalorias = document.querySelectorAll('.contadorDeCalorias');
-  const ejercicios = document.querySelectorAll('.ejercicios');
-  const comidas = document.querySelectorAll('.Comida');
-  const body = document.body;
+document.addEventListener('DOMContentLoaded', () => {
+let calorias = 0;
+let clicksPerSecond = 0;
+let intervalId;
+
+
+const circulo = document.getElementById('circulo');
+const contadorDeCalorias = document.querySelectorAll('.contadorDeCalorias');
+const ejercicios = document.querySelectorAll('.ejercicios');
+const comidas = document.querySelectorAll('.Comida');
+const body = document.body;
 
 const incrementoCosto = 1.15;
 
@@ -58,7 +61,8 @@ updateCalorias();
 }, 1000);
 }
 }
-document.getElementById("titulodinero").addEventListener("click", () => {  if (contadordecalorias >=preciodinero){
+let preciodinero = 5
+document.getElementById("titulodinero").addEventListener("click", () => {if (contadordecalorias >=preciodinero){
     alert('lo compraste')
     contadordecalorias = contadordecalorias - preciodinero;
     document.getElementById("contadorDeCalorias").innerHTML = contadordecalorias;
@@ -94,20 +98,20 @@ body.style.backgroundColor = 'gold';
 setTimeout(() => {
     clicksPerSecond /= potenciador;
 body.style.backgroundColor = ''; 
-      }, duracion);
-  }
+}, duracion);
+}
 
-  comidas.forEach(comida => {
-      comida.addEventListener('click', () => {
-          const comidaId = comida.id;
-          const { costo, potenciador, duracion } = comidasInfo[comidaId];
+comidas.forEach(comida => {
+comida.addEventListener('click', () => {
+const comidaId = comida.id;
+const { costo, potenciador, duracion } = comidasInfo[comidaId];
 
-          if (calorias >= costo) {
-              calorias -= costo;
-              aplicarPotenciador(potenciador, duracion); 
-              updateCalorias();
-          } else {
-              alert("No tienes suficientes calorías para comprar esta comida.");
+if (calorias >= costo) {
+calorias -= costo;
+aplicarPotenciador(potenciador, duracion); 
+updateCalorias();
+ } else {
+alert("No tienes suficiente dinero para comprar esta comida.");
           }
       });
   });
@@ -139,22 +143,22 @@ function toggleMenu() {
           }
       }, { once: true });
 
-  } else {
-      
-      dropdown.style.visibility = 'visible';
-      dropdown.style.height = '0';
-      dropdown.style.opacity = '0';
+} else {
+    
+dropdown.style.visibility = 'visible';
+dropdown.style.height = '0';
+dropdown.style.opacity = '0';
 
-      setTimeout(function() {
-          dropdown.style.height = dropdown.scrollHeight + 'px';
-          dropdown.style.opacity = '1';
-      }, 10);
-  }
+setTimeout(function() {
+    dropdown.style.height = dropdown.scrollHeight + 'px';
+dropdown.style.opacity = '1';
+}, 10);
+}
 
-  dropdown.classList.toggle("show");
+dropdown.classList.toggle("show");
 }
 //Backend
-function saveGameData(contadorDeCalorias, cantidaddedinero) {
+function saveGameData(contadordecalorias, cantidaddedinero) {
     console.log(contadordecalorias,cantidaddedinero)
   localStorage.setItem('contadorDeCalorias', contadordecalorias);
 localStorage.setItem('cantidaddedinero', cantidaddedinero);
@@ -174,4 +178,5 @@ setInterval(()=>{
 
 },1000) 
 
-
+// localStorage.clear()
+// document.getElementById("contadordecalorias").innerHTML = 0; 
