@@ -1,34 +1,28 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const fs = require('fs');
+const fs = require('fs').promises;
 
-const app = express();
-const PORT = 3000;
+// Función para leer y actualizar el archivo JSON
+async function actualizarCaloriasAuto(rutaArchivo, incremento) {
+  try {
+    const data = await fs.readFile(rutaArchivo, 'utf8');
+    const datosJugador = JSON.parse(data);
 
-app.use(bodyParser.json());
+    // Actualizar las calorías automáticamente
+    datosJugador.calorias = (datosJugador.calorias || 0) + incremento;
 
-// Ruta para obtener los datos guardados
-app.get('/datos', (req, res) => {
-    fs.readFile('datos.json', 'utf8', (err, data) => {
-        if (err) {
-            return res.status(500).send('Error al leer los datos');
-        }
-        res.json(JSON.parse(data));
-    });
-});
+    // Guardar los datos actualizados de vuelta en el archivo JSON
+    await fs.writeFile(rutaArchivo, JSON.stringify(datosJugador, null, 2), 'utf8');
+    console.log(`Calorías actualizadas: ${datosJugador.calorias}`);
+  } catch (err) {
+    console.error('Ocurrió un error:', err);
+  }
+}
 
-// Ruta para guardar los datos
-app.post('/datos', (req, res) => {
-    const datos = req.body;
+// Simular el progreso del jugador con un intervalo que actualiza las calorías automáticamente
+function iniciarJuego(rutaArchivo, intervalo, incremento) {
+  setInterval(() => {
+    actualizarCaloriasAuto(rutaArchivo, incremento);
+  }, intervalo);
+}
 
-    fs.writeFile('datos.json', JSON.stringify(datos), (err) => {
-        if (err) {
-            return res.status(500).send('Error al guardar los datos');
-        }
-        res.send('Datos guardados con éxito');
-    });
-});
-
-app.listen(PORT, () => {
-    console.log(`Servidor escuchando en http://localhost:${PORT}`);
-});
+// Iniciar el juego con un intervalo de 5 segundos y un incremento de 50 calorías cada vez
+iniciarJuego('jugador.json', 5000, 50);
