@@ -1,7 +1,7 @@
 let cantidaddedinero = 0;
 
-loadGameData()
-let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
+// loadGameData()
+// let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
 
 document.addEventListener('DOMContentLoaded', () => {
 let calorias = 0;
@@ -9,7 +9,6 @@ let clicksPerSecond = 0;
 let intervalId;
 
 
-const circulo = document.getElementById('circulo');
 const contadorDeCalorias = document.querySelectorAll('.contadorDeCalorias');
 const ejercicios = document.querySelectorAll('.ejercicios');
 const comidas = document.querySelectorAll('.Comida');
@@ -80,7 +79,7 @@ const produccionActual = ejerciciosInfo[ejercicioId].produccion;
 if (calorias >= costoActual) {
 calorias -= costoActual; 
 clicksPerSecond += produccionActual; 
-              ejerciciosInfo[ejercicioId].costo = Math.ceil(costoActual * incrementoCosto); 
+ejerciciosInfo[ejercicioId].costo = Math.ceil(costoActual * incrementoCosto); 
 updateCalorias();
 updateEjercicios();
 startAutoClicks(); 
@@ -158,25 +157,25 @@ dropdown.style.opacity = '1';
 dropdown.classList.toggle("show");
 }
 //Backend
-function saveGameData(contadordecalorias, cantidaddedinero) {
-    console.log(contadordecalorias,cantidaddedinero)
-  localStorage.setItem('contadorDeCalorias', contadordecalorias);
-localStorage.setItem('cantidaddedinero', cantidaddedinero);
+// function saveGameData(contadordecalorias, cantidaddedinero) {
+//     console.log(contadordecalorias,cantidaddedinero)
+//   localStorage.setItem('contadorDeCalorias', contadordecalorias);
+// localStorage.setItem('cantidaddedinero', cantidaddedinero);
   
-}
+// }
 
-function loadGameData () {
-    let calorias = localStorage.getItem('contadorDeCalorias') || 0;
-    cantidaddedinero = Number(localStorage.getItem("cantidaddedinero"))
-    let contadorCalorias = document.getElementById("contadorDeCalorias");
-    contadorCalorias.innerText = calorias;
+// function loadGameData () {
+//     let calorias = localStorage.getItem('contadorDeCalorias') || 0;
+//     cantidaddedinero = Number(localStorage.getItem("cantidaddedinero"))
+//     let contadorCalorias = document.getElementById("contadorDeCalorias");
+//     contadorCalorias.innerText = calorias;
     
-}
+// }
 
-setInterval(()=>{
-    saveGameData(document.getElementById("contadorDeCalorias").innerText, cantidaddedinero)
+// setInterval(()=>{
+//     saveGameData(document.getElementById("contadorDeCalorias").innerText, cantidaddedinero)
 
-},1000) 
+// },1000) 
 
 // localStorage.clear()
 // document.getElementById("contadordecalorias").innerHTML = 0; 
