@@ -47,6 +47,7 @@ ejercicio.querySelector('p').textContent = `Ejercicio tiene un coste de ${ejerci
 }
 
 function click() {
+    
     contadordecalorias += 1;
     console.log(contadordecalorias)
     document.getElementById("contadorDeCalorias").innerHTML = contadordecalorias;
@@ -112,8 +113,8 @@ aplicarPotenciador(potenciador, duracion);
 updateCalorias();
  } else {
 alert("No tienes suficiente dinero para comprar esta comida.");
-          }
-      });
+}
+});
   });
 
  
@@ -166,17 +167,11 @@ localStorage.setItem('cantidaddedinero', cantidaddedinero);
 }
 
 function loadGameData () {
-    let calorias = localStorage.getItem('contadorDeCalorias') || 0;
-    cantidaddedinero = Number(localStorage.getItem("cantidaddedinero"))
-    let contadorCalorias = document.getElementById("contadorDeCalorias");
-    contadorCalorias.innerText = calorias;
-    
+    let calorias = 0;
+   
 }
 
-setInterval(()=>{
-    saveGameData(document.getElementById("contadorDeCalorias").innerText, cantidaddedinero)
 
-},1000) 
 
 // localStorage.clear()
 // document.getElementById("contadordecalorias").innerHTML = 0; 
