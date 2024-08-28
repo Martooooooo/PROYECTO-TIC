@@ -37,10 +37,8 @@ body {
     
 }
 .Shop{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    
+    display: grid;
+    grid-template-columns:1fr;
     
 }
 .ejercicios{
@@ -339,4 +337,8 @@ input{
     width: 20px;
     height: 10px;
 }
-
+.especial{
+    background-color: peru;
+    border: 4px solid;
+    border-color: black;
+}

@@ -46,6 +46,7 @@ ejercicio.querySelector('p').textContent = `Ejercicio tiene un coste de ${ejerci
 }
 
 function click() {
+    
     contadordecalorias += 1;
     console.log(contadordecalorias)
     document.getElementById("contadorDeCalorias").innerHTML = contadordecalorias;
@@ -111,8 +112,8 @@ aplicarPotenciador(potenciador, duracion);
 updateCalorias();
  } else {
 alert("No tienes suficiente dinero para comprar esta comida.");
-          }
-      });
+}
+});
   });
 
  
