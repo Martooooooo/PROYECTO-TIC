@@ -1,7 +1,7 @@
 let cantidaddedinero = 0;
 
-// loadGameData()
-// let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
+loadGameData()
+let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
 
 document.addEventListener('DOMContentLoaded', () => {
 let calorias = 0;
@@ -33,6 +33,10 @@ const comidasInfo = {
 };
 
 function updateCalorias() {
+
+
+
+
 contadorDeCalorias.forEach(contador => {
 contador.textContent = calorias;
 });
