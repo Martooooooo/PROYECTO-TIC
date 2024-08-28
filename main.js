@@ -173,8 +173,20 @@ function loadGameData () {
     let calorias = 0;
    
 }
+//Backend
+const { sendEvent } = require('soquetic');
+
+// Obtener el valor de las calorías actuales
+let caloriasActuales = document.getElementById("contadordecalorias").textContent;
+
+// Enviar los datos de calorías al backend
+sendEvent('actualizarCalorias', { caloriasActuales });
+
+// Escuchar una respuesta opcional del servidor (si es necesario)
+onEvent('respuestaDelServidor', (data) => {
+    console.log('Respuesta del servidor:', data);
+});
 
 
 
-// localStorage.clear()
-// document.getElementById("contadordecalorias").innerHTML = 0; 
+
