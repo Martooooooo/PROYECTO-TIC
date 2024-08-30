@@ -70,6 +70,7 @@ document.getElementById("titulodinero").addEventListener("click", () => {if (con
     console.log(cantidaddedinero)
   } else alert(`te faltan ${contadordecalorias - preciodinero}`)
 });
+<<<<<<< HEAD
 
 ejercicios.forEach(ejercicio => {
 ejercicio.addEventListener('click', () => {
@@ -168,11 +169,9 @@ localStorage.setItem('cantidaddedinero', cantidaddedinero);
 function loadGameData () {
     let calorias = localStorage.getItem('contadorDeCalorias') || 0;
     cantidaddedinero = Number(localStorage.getItem("cantidaddedinero"))
-    let contadorCalorias = document.getElementById("contadorDeCalorias");
-    contadorCalorias.innerText = calorias;
-    
-}
 
+
+<<<<<<< HEAD
 setInterval(()=>{
     saveGameData(document.getElementById("contadorDeCalorias").innerText, cantidaddedinero)
 
@@ -181,5 +180,18 @@ setInterval(()=>{
 // localStorage.clear()
 // document.getElementById("contadordecalorias").innerHTML = 0; 
 
-// aaron empieza aca:
+//
+=======
+>>>>>>> e6ba7dac49442b7f4a9b7ae129585c87aba97aae
 
+=======
+//Backend
+// Carga de datos desde el almacenamiento local
+function loadGameData() {
+    let calorias = 0;
+    cantidaddedinero = Number(localStorage.getItem("cantidaddedinero")) || 0;
+>>>>>>> e6ba7dac49442b7f4a9b7ae129585c87aba97aae
+    let contadorCalorias = document.getElementById("contadorDeCalorias");
+    contadorCalorias.innerText = calorias;
+    
+}
