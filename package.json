@@ -21,5 +21,6 @@
     "express": "^4.19.2",
     "soquetic": "^1.0.3"
   },
+  "devDependencies": {},
   "description": ""
 }
