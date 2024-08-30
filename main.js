@@ -142,3 +142,4 @@ function loadGameData() {
     contadorCalorias.innerText = calorias;
     document.getElementById("titulodinero").innerHTML = `Dinero: ${cantidaddedinero}`;
 }
+
