@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoClicks();
     updateEjercicios();
 });
-
+//Backend
 // Carga de datos desde el almacenamiento local
 function loadGameData() {
     let calorias = 0;
