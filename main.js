@@ -61,16 +61,7 @@ updateCalorias();
 }, 1000);
 }
 }
-let preciodinero = 5
-document.getElementById("titulodinero").addEventListener("click", () => {if (contadordecalorias >=preciodinero){
-    alert('lo compraste')
-    contadordecalorias = contadordecalorias - preciodinero;
-    document.getElementById("contadorDeCalorias").innerHTML = contadordecalorias;
-    cantidaddedinero = cantidaddedinero + 1
-    console.log(cantidaddedinero)
-  } else alert(`te faltan ${contadordecalorias - preciodinero}`)
-});
-<<<<<<< HEAD
+
 
 ejercicios.forEach(ejercicio => {
 ejercicio.addEventListener('click', () => {
@@ -158,40 +149,46 @@ dropdown.style.opacity = '1';
 
 dropdown.classList.toggle("show");
 }
+document.getElementById("caja2").addEventListener("click", () => {
+    if (Number(document.getElementById("contadorDeCalorias").textContent) >= Number(document.getElementById("cajanegra").textContent)*5){
+        document.getElementById("contadorDeCalorias").textContent = Number(document.getElementById("contadorDeCalorias").textContent) - Number(document.getElementById("cajanegra").textContent)*5;
+        contadordecalorias = contadordecalorias - Number(document.getElementById("cajanegra").textContent)*5;
+        document.getElementById("input1").value = 0;
+    }
+    
+})
+
+document.getElementById("input1").addEventListener("input",()=>{
+    if (Number(document.getElementById("input1").textContent) >= 0){
+        document.getElementById("cajanegra").textContent = Math.floor(Number(document.getElementById("input1").value)/5);
+    }
+    
+})
 //Backend
-function saveGameData(contadordecalorias, cantidaddedinero) {
-    console.log(contadordecalorias,cantidaddedinero)
-  localStorage.setItem('contadorDeCalorias', contadordecalorias);
-localStorage.setItem('cantidaddedinero', cantidaddedinero);
-  
-}
-
-function loadGameData () {
-    let calorias = localStorage.getItem('contadorDeCalorias') || 0;
-    cantidaddedinero = Number(localStorage.getItem("cantidaddedinero"))
 
 
-<<<<<<< HEAD
-setInterval(()=>{
-    saveGameData(document.getElementById("contadorDeCalorias").innerText, cantidaddedinero)
 
-},1000) 
+
+
+
+
+
 
 // localStorage.clear()
 // document.getElementById("contadordecalorias").innerHTML = 0; 
 
 //
-=======
->>>>>>> e6ba7dac49442b7f4a9b7ae129585c87aba97aae
 
-=======
+
+
+
 //Backend
 // Carga de datos desde el almacenamiento local
 function loadGameData() {
     let calorias = 0;
-    cantidaddedinero = Number(localStorage.getItem("cantidaddedinero")) || 0;
->>>>>>> e6ba7dac49442b7f4a9b7ae129585c87aba97aae
+    cantidaddedinero = Number(localStorage.getItem("cantidaddedinero")) || 0;}
+    
     let contadorCalorias = document.getElementById("contadorDeCalorias");
     contadorCalorias.innerText = calorias;
     
-}
+

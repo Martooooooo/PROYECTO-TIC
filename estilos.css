@@ -342,3 +342,8 @@ input{
     border: 4px solid;
     border-color: black;
 }
+
+.input1{
+    width: 90px;
+    height: 90px;
+}
