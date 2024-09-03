@@ -164,7 +164,6 @@ document.getElementById("input1").addEventListener("input",()=>{
     }
     
 })
-//Backend
 
 
 
@@ -172,12 +171,6 @@ document.getElementById("input1").addEventListener("input",()=>{
 
 
 
-
-
-// localStorage.clear()
-// document.getElementById("contadordecalorias").innerHTML = 0; 
-
-//
 
 
 
