@@ -22,7 +22,7 @@ if (usuarioExistente) {
     usuarios.push(usuario);
     fs.writeFileSync('infoUsuario.json', JSON.stringify(usuarios, null, 2));
     console.log("Usuario registrado exitosamente.");
-}
+
 
 // Iniciar sesión
 nombre = readLineSync.question("Iniciar sesión - Nombre de usuario: ");
@@ -33,6 +33,6 @@ usuarioExistente = usuarios.find(u => u.nombre === nombre && u.contraseña === p
 
 if (usuarioExistente) {
     console.log("Inicio de sesión exitoso. ¡Bienvenido!");
-} else {
-    console.log("Nombre de usuario o contraseña incorrectos.");
+} else { console.log("Nombre de usuario o contraseña incorrectos.")};
 }
+
