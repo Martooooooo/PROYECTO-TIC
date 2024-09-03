@@ -14,4 +14,17 @@ onEvent("contadordedinero",(data)=>{
     let nuevo=datosjugador[0].dinero=dineroactual;
     fs.writeFileSync("datos.json",JSON.stringify(nuevo,null,2));  
 })
+onEvent("ccontadormusculo",(data)=>{
+    
+    let datosjugador= JSON.parse(fs.readFileSync("datos.json", "utf-8 "));
+    let nuevo=datosjugador[0].dinero=dineroactual;
+    fs.writeFileSync("datos.json",JSON.stringify(nuevo,null,2));  
+    
+onEvent("logros",(data)=>{
+    
+    let datosjugador= JSON.parse(fs.readFileSync("datos.json", "utf-8 "));
+    let nuevo=datosjugador[0].dinero=dineroactual;
+    fs.writeFileSync("datos.json",JSON.stringify(nuevo,null,2));  
+    })
+})
 startServer();

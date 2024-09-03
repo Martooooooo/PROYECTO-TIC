@@ -203,9 +203,6 @@ img{
     width: 400px;
     transition: background-color 1s linear;
 }
-.titulodinero:hover{
-   background-color: #3F51B5;
-}
 
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 

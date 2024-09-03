@@ -151,9 +151,11 @@ dropdown.classList.toggle("show");
 }
 document.getElementById("caja2").addEventListener("click", () => {
     if (Number(document.getElementById("contadorDeCalorias").textContent) >= Number(document.getElementById("cajanegra").textContent)*5){
-        document.getElementById("contadorDeCalorias").textContent = Number(document.getElementById("contadorDeCalorias").textContent) - Number(document.getElementById("cajanegra").textContent)*5;
+       document.getElementById("contadorDeCalorias").textContent = Number(document.getElementById("contadorDeCalorias").textContent) - Number(document.getElementById("cajanegra").textContent)*5;
+       let dinero =  Number(document.getElementById("titulodinero").textContent) + Number(document.getElementById("cajanegra").textContent);
         contadordecalorias = contadordecalorias - Number(document.getElementById("cajanegra").textContent)*5;
         document.getElementById("input1").value = 0;
+        document.getElementById("titulodinero").textContent=dinero
     }
     
 })
@@ -184,4 +186,3 @@ function loadGameData() {
     let contadorCalorias = document.getElementById("contadorDeCalorias");
     contadorCalorias.innerText = calorias;
     
-
