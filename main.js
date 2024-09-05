@@ -160,25 +160,23 @@ document.getElementById("caja2").addEventListener("click", () => {
     
 })
 
-document.getElementById("input1").addEventListener("input",()=>{
-    if (Number(document.getElementById("input1").textContent) >= 0){
-        document.getElementById("cajanegra").textContent = Math.floor(Number(document.getElementById("input1").value)/5);
-    }
-    
-})
+function toggleVisibility(triggerSelector, targetSelector) {
+    const triggerElement = document.querySelector(triggerSelector);
+    const targetElement = document.querySelector(targetSelector);
+
+    triggerElement.addEventListener('click', function() {
+        if (targetElement.style.display === 'none') {
+            targetElement.style.display = 'block';
+        } else {
+            targetElement.style.display = 'none';
+        }
+    });
+}
+
+toggleVisibility('#trigger-div', '#target-div');
 
 
 
-
-
-
-
-
-
-
-
-//Backend
-// Carga de datos desde el almacenamiento local
 function loadGameData() {
     let calorias = 0;
     cantidaddedinero = Number(localStorage.getItem("cantidaddedinero")) || 0;}

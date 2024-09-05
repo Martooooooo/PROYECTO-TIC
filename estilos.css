@@ -123,11 +123,13 @@ img{
 .circulo{
     background: lightblue;
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     align-content: center;
     cursor: pointer;
     padding:1px;
+    position: relative;
+    right: 40px;
 }
 .Comida{
     background-color: #D9D9D9; 
@@ -326,10 +328,8 @@ body {
     height: 60px;
     width: 400px;
 }
-.login{
-    text-align: end;
 
-}
+
 input{
     width: 20px;
     height: 10px;
