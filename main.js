@@ -166,17 +166,6 @@ document.getElementById("input1").addEventListener("input",()=>{
     }
     
 })
-
-
-
-
-
-
-
-
-
-
-
 //Backend
 // Carga de datos desde el almacenamiento local
 function loadGameData() {
@@ -186,3 +175,4 @@ function loadGameData() {
     let contadorCalorias = document.getElementById("contadorDeCalorias");
     contadorCalorias.innerText = calorias;
     
+   
