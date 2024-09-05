@@ -27,4 +27,16 @@ onEvent("logros",(data)=>{
     fs.writeFileSync("datos.json",JSON.stringify(nuevo,null,2));  
     })
 })
+onEvent("comidas",(data)=>{
+    console.log(data)
+    let datosjugador= JSON.parse(fs.readFileSync("datos.json", "utf-8 "));
+    let nuevo=datosjugador[0].comidas=comidaactuales;
+    fs.writeFileSync("datos.json",JSON.stringify(nuevo,null,2));  
+})
+onEvent("ejercicios",(data)=>{
+    console.log(data)
+    let datosjugador= JSON.parse(fs.readFileSync("datos.json", "utf-8 "));
+    let nuevo=datosjugador[0].ejercicios=ejerciciosactuales;
+    fs.writeFileSync("datos.json",JSON.stringify(nuevo,null,2));  
+})
 startServer();

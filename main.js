@@ -160,21 +160,6 @@ document.getElementById("caja2").addEventListener("click", () => {
     
 })
 
-function toggleVisibility(triggerSelector, targetSelector) {
-    const triggerElement = document.querySelector(triggerSelector);
-    const targetElement = document.querySelector(targetSelector);
-
-    triggerElement.addEventListener('click', function() {
-        if (targetElement.style.display === 'none') {
-            targetElement.style.display = 'block';
-        } else {
-            targetElement.style.display = 'none';
-        }
-    });
-}
-
-toggleVisibility('#trigger-div', '#target-div');
-
 
 
 function loadGameData() {
@@ -184,3 +169,4 @@ function loadGameData() {
     let contadorCalorias = document.getElementById("contadorDeCalorias");
     contadorCalorias.innerText = calorias;
     
+   
