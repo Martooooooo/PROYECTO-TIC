@@ -160,12 +160,29 @@ document.getElementById("caja2").addEventListener("click", () => {
     
 })
 
+document.getElementById("input1").addEventListener("input",()=>{
+    if (Number(document.getElementById("input1").textContent) >= 0){
+        document.getElementById("cajanegra").textContent = Math.floor(Number(document.getElementById("input1").value)/5);
+    }
+    
+})
 
 
+
+
+
+
+
+
+
+
+
+//Backend
+// Carga de datos desde el almacenamiento local
 function loadGameData() {
+    let calorias = 0;
     cantidaddedinero = Number(localStorage.getItem("cantidaddedinero")) || 0;}
     
     let contadorCalorias = document.getElementById("contadorDeCalorias");
     contadorCalorias.innerText = calorias;
     
-   
