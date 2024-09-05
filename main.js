@@ -163,7 +163,6 @@ document.getElementById("caja2").addEventListener("click", () => {
 
 
 function loadGameData() {
-    let calorias = 0;
     cantidaddedinero = Number(localStorage.getItem("cantidaddedinero")) || 0;}
     
     let contadorCalorias = document.getElementById("contadorDeCalorias");
