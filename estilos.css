@@ -36,10 +36,9 @@ body {
     
     
 }
-.Shop{
+.Shop {
     display: grid;
-    grid-template-columns:1fr;
-    
+    grid-template-columns: 1fr;
 }
 .ejercicios{
     display: flex;
