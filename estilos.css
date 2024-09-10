@@ -6,7 +6,8 @@ body {
     justify-content: center;
     background-color: #f4f4f4;
     margin: 0;
-
+    width: 100vw;
+    height: 100vh;
     user-select: none;
     
 }
@@ -37,8 +38,11 @@ body {
     
 }
 .Shop {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 85vh;
 }
 .ejercicios{
     display: flex;
@@ -49,9 +53,9 @@ body {
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
-    margin: 2px;
-    width: 50%;
-    height: 1fr;
+    margin: 0;
+    width: 30vw;
+    height: 8vh;
     align-items: flex-start;
     justify-items: flex-start;
     transition: transform 0.3s ease-in-out;
@@ -129,7 +133,11 @@ img{
     padding:1px;
     position: relative;
     right: 40px;
+    top: -300px;
+    transition: transform 0.3s ease; 
 }
+
+
 .Comida{
     background-color: #D9D9D9; 
     border: 4px solid;
@@ -139,6 +147,8 @@ img{
     font-size: 16px;
     border-radius: 5px;
     margin: 2px;
+    width: 29vw;
+    height: 8vh;
 
 }
 .Cof{
@@ -149,7 +159,7 @@ img{
 }
 .pill {
     width: 50px;
-    height: 450px;
+    height: 400px;
     background: linear-gradient(to bottom, #D3D3D3 50%, #90EE90 50%);
     border-radius: 25px;
     border: 1px solid #ccc;
@@ -179,7 +189,8 @@ img{
     border: 4px solid;
     border-color: black;
     justify-content: center;
-    height: 40px;
+    width: 30vw;
+    height: 8vh;
    
 }
 .abajo2{
@@ -189,8 +200,8 @@ img{
     border: 4px solid;
     border-color: black;
     justify-content: center;
-    height: 40px;
-    
+    width: 30vw;
+    height: 8vh;
 }
 .titulodinero{
     display: flex;
@@ -342,4 +353,28 @@ input{
 .input1{
     width: 90px;
     height: 90px;
+}
+.hidden {
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out; 
+    height: 0; 
+    overflow: hidden; 
+    background-color: silver;
+
+}
+
+.visible {
+    opacity: 1; 
+    transition: opacity 0.3s ease-in-out; 
+    height: auto; 
+    height: 75px;
+    width: 250px;
+    background-color: silver;
+    position: relative;
+    top:-150px;
+}
+
+.hola{
+  width: 200px;
+  height: 15px;
 }

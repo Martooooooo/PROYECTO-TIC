@@ -90,3 +90,20 @@ for (let i in ejerciciosInfo){
         cantidaddedinero -= ejerciciosInfo[i].costo;
     })
 }
+
+function toggleVisibility(triggerSelector, targetSelector) {
+    const triggerElement = document.querySelector(triggerSelector);
+    const targetElement = document.querySelector(targetSelector);
+
+    triggerElement.addEventListener('click', function() {
+        if (targetElement.classList.contains('hidden')) {
+            targetElement.classList.remove('hidden');
+            targetElement.classList.add('visible'); 
+        } else {
+            targetElement.classList.remove('visible');
+            targetElement.classList.add('hidden'); 
+        }
+    });
+}
+
+toggleVisibility('#trigger-div', '#target-div');
