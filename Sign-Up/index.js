@@ -2,6 +2,7 @@
 import readlineSync from 'readline-sync';
 import fs from 'fs';
 
+
 // Leer los usuarios existentes desde el archivo JSON
 let usuarios = JSON.parse(fs.readFileSync('infoUsuario.json', "utf-8"));
 
