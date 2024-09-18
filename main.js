@@ -11,15 +11,15 @@ const comidasInfo = {
     'Chukistrukis': { costo: 500, potenciador: 1.20, duracion: 5000 },
     'Avena': { costo: 500, potenciador: 1.30, duracion: 5000 },
     'Proteinaenpolvo': { costo: 500, potenciador: 1.40, duracion: 5000 },
-    'Farmecutico locales': { costo: 500, potenciador: 1.50, duracion: 5000 }
+    'farmacity': { costo: 500, potenciador: 1.50, duracion: 5000 }
 };
 
 
 let cantidaddedinero = 0;
-
-loadGameData();
 let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
 let cantidaddemusculo = 0;
+let contadordemusculo= Number(document.getElementById("contadorDeMusculo").innerText);
+cantidaddedinero=Number(document.getElementById("titulodinero").innerText);
 
 function click() {
     contadordecalorias += 1;
@@ -74,7 +74,12 @@ document.getElementById("input1").addEventListener("input", () => {
         document.getElementById("cajanegra").textContent = Math.floor(Number(document.getElementById("input1").value) / 5);
     }
 });
+document.getElementById("ejerciciosmancuernas").addEventListener("click",()=>{
+    cantidaddedinero = cantidaddedinero-5
+    setTimeout(() => {  contadordemusculo = contadordemusculo+ 1;}, 2000);
 
+    
+})
 // Backend
 // Carga de datos desde el almacenamiento local
 function loadGameData() {
