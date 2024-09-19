@@ -1,4 +1,4 @@
-const ejerciciosInfo = {
+var ejerciciosInfo = {
     'ejerciciosmancuernas': { costo: 5, produccion: 1 },
     'ejerciciosbicicleta': { costo: 50, produccion: 10 },
     'ejerciciospresbanca': { costo: 500, produccion: 100 },
@@ -6,7 +6,7 @@ const ejerciciosInfo = {
     'ejerciciossentadilla': { costo: 50000, produccion: 10000 }
 };
 
-const comidasInfo = {
+var comidasInfo = {
     'Arroz': { costo: 500, potenciador: 1.10, duracion: 5000 },
     'Chukistrukis': { costo: 500, potenciador: 1.20, duracion: 5000 },
     'Avena': { costo: 500, potenciador: 1.30, duracion: 5000 },
@@ -74,12 +74,32 @@ document.getElementById("input1").addEventListener("input", () => {
         document.getElementById("cajanegra").textContent = Math.floor(Number(document.getElementById("input1").value) / 5);
     }
 });
-document.getElementById("ejerciciosmancuernas").addEventListener("click",()=>{
-    cantidaddedinero = cantidaddedinero-5
-    setTimeout(() => {  contadordemusculo = contadordemusculo+ 1;}, 2000);
 
+
+function calculodeprecio (ejerciciosgenerales,idejercicio){
+    ejerciciosgenerales.costo = ejerciciosgenerales.costo*1.15;
+    cantidaddedinero = cantidaddedinero - ejerciciosgenerales.costo
     
-})
+    setInterval(() => {  contadordemusculo = contadordemusculo+ ejerciciosgenerales.produccion;
+    document.getElementById("contadorDeMusculo").innerHTML = contadordemusculo;
+    console.log("hola");
+
+    }, 10000);
+
+    document.getElementById(idejercicio).innerHTML = Math.floor(ejerciciosgenerales.costo)
+
+}
+
+
+document.getElementById("ejerciciosmancuernas").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciosmancuernas,"precio1"));
+document.getElementById("ejerciciosbicicleta").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciosbicicleta,"precio2"));
+document.getElementById("ejerciciospresbanca").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciospresbanca,"precio3"));
+document.getElementById("ejercicioscaminadora").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejercicioscaminadora,"precio4"));
+document.getElementById("ejerciciossentadilla").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciossentadilla,"precio5"));
+
+
+
+
 // Backend
 // Carga de datos desde el almacenamiento local
 function loadGameData() {
