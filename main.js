@@ -76,9 +76,9 @@ document.getElementById("input1").addEventListener("input", () => {
 });
 
 
-function calculodeprecio (ejerciciosgenerales,idejercicio){
-    ejerciciosgenerales.costo = ejerciciosgenerales.costo*1.15;
-    cantidaddedinero = cantidaddedinero - ejerciciosgenerales.costo
+function calculodeprecio (ejerciciosInfo,idejercicio){
+    ejerciciosInfo.costo = ejerciciosInfo.costo*1.15;
+    cantidaddedinero = cantidaddedinero - ejerciciosInfo.costo
     
     setInterval(() => {  contadordemusculo = contadordemusculo+ ejerciciosgenerales.produccion;
     document.getElementById("contadorDeMusculo").innerHTML = contadordemusculo;
@@ -86,7 +86,7 @@ function calculodeprecio (ejerciciosgenerales,idejercicio){
 
     }, 10000);
 
-    document.getElementById(idejercicio).innerHTML = Math.floor(ejerciciosgenerales.costo)
+    document.getElementById(idejercicio).innerHTML = Math.floor(ejerciciosInfo.costo)
 
 }
 
