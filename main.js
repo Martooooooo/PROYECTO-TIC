@@ -14,6 +14,15 @@ var comidasInfo = {
     'farmacity': { costo: 500, potenciador: 1.50, duracion: 5000 }
 };
 
+var cantidades = {
+    "mancuernas":0,
+    "bicicleta":0,
+    "pressbanca":0,
+    "caminadora":0,
+    "sentadilla":0,
+
+}
+
 
 let cantidaddedinero = 0;
 let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
@@ -32,35 +41,34 @@ function toggleMenu() {
     var dropdown = document.getElementById("myDropdown");
 
     if (dropdown.classList.contains("show")) {
-        dropdown.style.transition = 'none'; // Desactiva la transición para el cierre inmediato
+        dropdown.style.transition = 'none'; 
         dropdown.style.height = '0';
         dropdown.style.opacity = '0';
         dropdown.style.visibility = 'hidden';
 
-        // Después de que el estilo de altura se haya aplicado, habilitar la transición para futuras aperturas
         setTimeout(() => {
-            dropdown.style.transition = ''; // Restaura la transición para futuras aperturas
-        }, 300); // Espera un poco para asegurarse de que la transición de cierre se haya completado
+            dropdown.style.transition = '';
+        }, 300);
     } else {
-        // Si el menú está oculto, se debe mostrar
+      
         dropdown.style.visibility = 'visible';
-        dropdown.style.height = '100vh'; // Ocupa toda la altura de la pantalla
+        dropdown.style.height = '100vh'; 
         dropdown.style.opacity = '1';
 
-        // Forza un redibujado para que el navegador registre el cambio de altura antes de la transición
-        dropdown.offsetHeight; // Esto es solo para forzar el reflow
+        dropdown.offsetHeight;
 
         dropdown.style.transition = 'height 0.3s ease, opacity 0.3s ease';
     }
 
-    // Alterna la clase "show" para manejar la visibilidad con CSS
+   
     dropdown.classList.toggle("show");
 }
 
 
 document.getElementById("caja2").addEventListener("click", () => {
-    if (contadordecalorias >= Number(document.getElementById("cajanegra").textContent) * 5) {
-        contadordecalorias -= Number(document.getElementById("cajanegra").textContent) * 5;
+    let cambio = document.getElementById("cajanegra").textContent
+    if (contadordecalorias >= Number(cambio) * 5) {
+        contadordecalorias -= Number(cambio) * 5;
         document.getElementById("contadorDeCalorias").textContent = contadordecalorias;
         cantidaddedinero += Number(document.getElementById("cajanegra").textContent);
         document.getElementById("input1").value = 0;
@@ -77,17 +85,56 @@ document.getElementById("input1").addEventListener("input", () => {
 
 
 function calculodeprecio (ejerciciosInfo,idejercicio){
+    if (cantidaddedinero >= ejerciciosInfo.costo){
+        
+    cantidaddedinero = cantidaddedinero - ejerciciosInfo.costo;
     ejerciciosInfo.costo = ejerciciosInfo.costo*1.15;
-    cantidaddedinero = cantidaddedinero - ejerciciosInfo.costo
-    
-    setInterval(() => {  contadordemusculo = contadordemusculo+ ejerciciosgenerales.produccion;
+    document.getElementById("titulodinero").innerHTML = cantidaddedinero;
+    console.log(ejerciciosInfo.costo);
+    setInterval(() => {  contadordemusculo = contadordemusculo+ ejerciciosInfo.produccion;
     document.getElementById("contadorDeMusculo").innerHTML = contadordemusculo;
     console.log("hola");
 
     }, 10000);
 
-    document.getElementById(idejercicio).innerHTML = Math.floor(ejerciciosInfo.costo)
+    document.getElementById(idejercicio).innerHTML = Math.ceil(ejerciciosInfo.costo);
 
+    switch (idejercicio){
+    case "precio1":
+        cantidades.mancuernas ++;    
+        console.log ("mancuenas:" + cantidades.mancuernas );
+
+        break
+    case "precio2":
+        cantidades.bicicleta ++;  
+        console.log ("bicicleta:" + cantidades.bicicleta );
+
+          
+        break    
+    case "precio3":
+        cantidades.pressbanca ++;  
+        console.log ("pressbanca:" + cantidades.pressbanca );
+  
+        break
+    case "precio4":
+        cantidades.caminadora ++;   
+        console.log ("caminadora:" + cantidades.caminadora );
+ 
+        break
+    case "precio5":
+        cantidades.sentadilla ++;    
+        console.log ("sentadilla:" + cantidades.sentadilla );
+        
+        break
+    default:
+        console.log ("no se ha encontrado nada");    
+
+    }
+
+ }
+ else {
+    console.log("Dinero Insuficiente")
+ }
 }
 
 
@@ -97,6 +144,11 @@ document.getElementById("ejerciciospresbanca").addEventListener("click",() => ca
 document.getElementById("ejercicioscaminadora").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejercicioscaminadora,"precio4"));
 document.getElementById("ejerciciossentadilla").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciossentadilla,"precio5"));
 
+window.addEventListener("beforeunload", function(e){
+    postData("Guardar infromacion", {
+        cantidades:cantidades
+      });    
+ });
 
 
 
