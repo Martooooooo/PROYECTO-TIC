@@ -38,5 +38,12 @@ onEvent("ejercicios", (data) => {
     datosjugador[0].ejercicios = data.ejerciciosactuales; 
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
+
+onEvent("cantidades", (data) => {
+    console.log(data);
+    let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
+    datosjugador[0].ejercicios = data.ejerciciosactuales; 
+    writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
+});
 //AARON
 startServer();

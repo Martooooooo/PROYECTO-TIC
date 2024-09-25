@@ -94,7 +94,7 @@ function calculodeprecio (ejerciciosInfo,idejercicio){
     setInterval(() => {  contadordemusculo = contadordemusculo+ ejerciciosInfo.produccion;
     document.getElementById("contadorDeMusculo").innerHTML = contadordemusculo;
     console.log("hola");
-
+a
     }, 10000);
 
     document.getElementById(idejercicio).innerHTML = Math.ceil(ejerciciosInfo.costo);
