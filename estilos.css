@@ -9,6 +9,8 @@ body {
     width: 100vw;
     height: 100vh;
     user-select: none;
+    position: absolute;
+    z-index: 2;
     
 }
 
@@ -394,4 +396,8 @@ input{
 .hola{
   width: 200px;
   height: 15px;
+}
+.xd{
+    position: absolute;
+    z-index: 0;
 }
