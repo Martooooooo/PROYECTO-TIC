@@ -39,4 +39,5 @@ onEvent("ejercicios", (data) => {
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
 //AARON
+
 startServer();
