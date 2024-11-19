@@ -39,6 +39,6 @@ onEvent("cantidades", (data) => {
     datosjugador[0].ejercicios = data.ejerciciosactuales; 
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
-//AARON
+
 
 startServer();
